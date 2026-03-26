@@ -12,15 +12,14 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #fdf6f9; /* very light blush */
-    color: #b76e8a; /* muted rose text */
+    background: #fdf6f9;
+    color: #b76e8a;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* NAV BAR */
+/* NAV */
 nav {
-    background: #e7b9c9; /* soft dusty pink */
+    background: #e7b9c9;
     padding: 18px 40px;
     display: flex;
     justify-content: space-between;
@@ -30,10 +29,8 @@ nav {
     z-index: 10;
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: white;
+.logo-img {
+    height: 40px;
 }
 
 nav a {
@@ -43,32 +40,28 @@ nav a {
     font-weight: 500;
 }
 
-nav a:hover {
-    opacity: 0.75;
-}
-
 /* HEADER */
 header {
     text-align: center;
-    padding: 120px 20px 80px 20px;
-    position: relative;
+    padding: 120px 20px 80px;
     z-index: 2;
+    position: relative;
 }
 
 header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 72px;
+    font-size: 70px;
     margin: 0;
 }
 
 header p {
-    font-size: 20px;
-    margin-top: 15px;
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 /* SECTIONS */
 .section {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
     padding: 70px 20px;
     text-align: center;
@@ -78,37 +71,59 @@ header p {
 
 .section h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    margin-bottom: 30px;
+    font-size: 34px;
 }
 
 /* MENU */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
+    margin-top: 40px;
 }
 
 .menu-item {
-    background: white;
-    padding: 30px;
+    background: rgba(255,255,255,0.9);
+    padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(199, 143, 167, 0.15);
-    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(199,143,167,0.15);
+    transition: 0.3s;
 }
 
 .menu-item:hover {
     transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(199,143,167,0.25);
 }
 
 .menu-item h3 {
     font-family: 'Playfair Display', serif;
-    margin-top: 0;
+    margin: 10px 0;
+}
+
+.price {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.tag {
+    display: inline-block;
+    background: #f3d3df;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.drink-img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 /* STORY */
 .story p {
-    font-size: 17px;
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -116,38 +131,24 @@ header p {
 /* FOOTER */
 footer {
     background: #e7b9c9;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 80px;
     color: white;
-    position: relative;
-    z-index: 2;
+    text-align: center;
+    padding: 40px;
 }
 
-.instagram {
-    margin-top: 10px;
-    font-weight: 500;
-}
-
-/* BUBBLES (BEHIND CONTENT) */
+/* BUBBLES */
 .bubble {
     position: fixed;
     bottom: -150px;
-    background: rgba(231, 185, 201, 0.25);
+    background: rgba(231,185,201,0.25);
     border-radius: 50%;
     animation: rise 18s infinite ease-in;
     z-index: 0;
 }
 
 @keyframes rise {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translateY(-130vh) scale(1.4);
-        opacity: 0;
-    }
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-130vh);}
 }
 
 </style>
@@ -157,14 +158,13 @@ footer {
 
 <!-- BUBBLES -->
 <div class="bubble" style="left:10%; width:120px; height:120px;"></div>
-<div class="bubble" style="left:30%; width:80px; height:80px; animation-duration:22s;"></div>
-<div class="bubble" style="left:55%; width:150px; height:150px; animation-duration:20s;"></div>
-<div class="bubble" style="left:75%; width:90px; height:90px; animation-duration:24s;"></div>
-<div class="bubble" style="left:90%; width:110px; height:110px; animation-duration:19s;"></div>
+<div class="bubble" style="left:40%; width:80px; height:80px;"></div>
+<div class="bubble" style="left:70%; width:140px; height:140px;"></div>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-    <div class="logo">Potion Gazeuse</div>
+    <!-- REPLACE logo.png WITH YOUR FILE -->
+    <img src="logo.png" class="logo-img">
     <div>
         <a href="#menu">Menu</a>
         <a href="#story">Our Story</a>
@@ -180,59 +180,82 @@ footer {
 <!-- MENU -->
 <section class="section" id="menu">
     <h2>Menu</h2>
+
     <div class="menu-grid">
+
         <div class="menu-item">
+            <div class="tag">Most Popular</div>
+            <img src="drink1.jpg" class="drink-img">
             <h3>Classic Cola</h3>
-            <p>Classic Cola with fresh lime, vanilla syrup, and creamer.</p>
+            <p>Classic Cola with lime, vanilla syrup, and creamer.</p>
+            <div class="price">$4.50</div>
         </div>
+
         <div class="menu-item">
+            <div class="tag">Signature</div>
+            <img src="drink2.jpg" class="drink-img">
             <h3>Shark Attack</h3>
-            <p>Sprite with blue raspberry syrup, shot of granadine, and topped with gummies.</p>
+            <p>Sprite with blue raspberry and grenadine.</p>
+            <div class="price">$5.00</div>
         </div>
+
         <div class="menu-item">
-            <h3>Root Beer float</h3>
-            <p>Root Beer with vanilla syrup, and creamer.</p>
+            <img src="drink3.jpg" class="drink-img">
+            <h3>Root Beer Float</h3>
+            <p>Root beer with vanilla and creamer.</p>
+            <div class="price">$4.75</div>
         </div>
+
         <div class="menu-item">
+            <div class="tag">New</div>
+            <img src="drink4.jpg" class="drink-img">
             <h3>Canada Colada</h3>
-            <p>Sprite with grenadine, pinapple juice, coconut syrup, topped with fruits.</p>
-        </div>    
+            <p>Sprite with pineapple, coconut, and fruit topping.</p>
+            <div class="price">$5.25</div>
+        </div>
+
         <div class="menu-item">
-    <h3>Slurp Juice</h3>
-    <p>Cotton candy Alani whith blue raspberry syrup, marshmallow fluff, coconut creamer, topped with candy.</p>
-</div>
+            <img src="drink5.jpg" class="drink-img">
+            <h3>Slurp Juice</h3>
+            <p>Mountain Dew with green apple and lime.</p>
+            <div class="price">$4.75</div>
+        </div>
 
-<div class="menu-item">
-    <h3>Butterfly Elixir</h3>
-    <p>Butterfly pea tea mixed with fresh lemonade.</p>
-</div>
+        <div class="menu-item">
+            <div class="tag">New</div>
+            <img src="drink6.jpg" class="drink-img">
+            <h3>Butterfly Elixir</h3>
+            <p>Sprite with floral notes and citrus.</p>
+            <div class="price">$5.00</div>
+        </div>
 
-<div class="menu-item">
-    <h3>Honey Hibiscus</h3>
-    <p>Hibiscus tea brewed with a cinnamon stick and pineapple juices.</p>
-</div>
-            
+        <div class="menu-item">
+            <img src="drink7.jpg" class="drink-img">
+            <h3>Honey Hibiscus</h3>
+            <p>Hibiscus tea with honey and lemon.</p>
+            <div class="price">$4.75</div>
+        </div>
+
+    </div>
 </section>
 
 <!-- STORY -->
 <section class="section story" id="story">
     <h2>Our Story</h2>
     <p>
-    Potion Gazeuse was created by five high school girls who wanted to transform
-    a simple drink trend into something elevated and unforgettable.
-    What began as after-school recipe experiments quickly became a shared dream.
+    Potion Gazeuse was created by five high school girls who turned a simple idea
+    into something elevated and creative. What started as experimenting with drinks
+    after school quickly became a passion project and a real business.
     </p>
     <p>
-    We combine creativity, ambition, and friendship into every handcrafted soda.
-    Our mission is simple: make bold flavors feel aesthetic, modern, and memorable.
+    We blend creativity, ambition, and friendship into every drink we create.
+    Our goal is to make bold flavors that feel aesthetic, modern, and unforgettable.
     </p>
 </section>
 
 <footer>
     © 2026 Potion Gazeuse  
-    <div class="instagram">
-        Follow us on Instagram: @potiongazeuse
-    </div>
+    <div>Follow us on Instagram: @potiongazeuse</div>
 </footer>
 
 </body>
